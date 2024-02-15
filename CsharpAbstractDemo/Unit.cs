@@ -5,13 +5,14 @@ public class Unit: GameObject
   protected Rectangle _rect;
   protected Vector2 _velocity;
   protected float _speed = 90f;
-  protected Color _color;
 
-  public Unit(Vector2 startPosition)
+  protected IUnitRenderer _unitRenderer;
+
+  public Unit(Vector2 startPosition, IUnitRenderer renderer)
   {
     _rect = new(startPosition.X, startPosition.Y, 64, 64);
     _velocity = Vector2.UnitX;
-    _color = Color.Red;
+    _unitRenderer = renderer;
   }
 
   public override void Update(float deltaTime)
@@ -26,6 +27,6 @@ public class Unit: GameObject
 
   public override void Draw()
   {
-    Raylib.DrawRectangleRec(_rect, _color);
+    _unitRenderer.Draw(_rect);
   }
 }

@@ -7,8 +7,8 @@ Raylib.SetTargetFPS(60);
 
 // Create units
 List<GameObject> gameObjects = new();
-gameObjects.Add(new Unit(Vector2.Zero));
-gameObjects.Add(new Unit(new Vector2(64,128)));
+gameObjects.Add(new Unit(Vector2.Zero, new UnitRenderer()));
+gameObjects.Add(new Unit(new Vector2(64, 128), new UnitRenderer()));
 
 GreenUnit green = new GreenUnit(new Vector2(0, 256));
 gameObjects.Add(green);
@@ -38,9 +38,12 @@ while (!Raylib.WindowShouldClose())
   {
     foreach (IClickable c in clickables)
     {
-      if (c.PointIsInside(mousePosition))
+      if (c is IHoverable)
       {
-        c.Click();
+        if (( (IHoverable)c).PointIsInside(mousePosition))
+        {
+          c.Click();
+        }
       }
     }
   }

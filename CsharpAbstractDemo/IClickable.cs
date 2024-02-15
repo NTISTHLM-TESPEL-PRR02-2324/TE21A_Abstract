@@ -2,6 +2,10 @@
 
 public interface IClickable
 {
-  public bool PointIsInside(Vector2 point);
   public void Click();
+}
+
+public interface IHoverable
+{
+  public bool PointIsInside(Vector2 point);
 }

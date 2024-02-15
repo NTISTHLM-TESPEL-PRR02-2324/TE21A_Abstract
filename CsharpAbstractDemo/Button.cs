@@ -1,6 +1,6 @@
 ﻿namespace CsharpAbstractDemo;
 
-public class Button : IClickable
+public class Button : IClickable, IHoverable
 {
   private Rectangle _rect;
   private string _label;

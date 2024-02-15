@@ -1,0 +1,10 @@
+- IRenderer interface (Draw-metod)
+- UnitRenderer implementerar IRenderer
+- Unit får bara icke-Raylib-variabler
+---
+- GameObjectDrawer class (ingesting IDrawables)?
+- ClickHandler class?
+---
+- Ideal:
+  - Unit borde bara vara data & logik, ingen utritning eller interaktion(?)
+  - Button samma sak
