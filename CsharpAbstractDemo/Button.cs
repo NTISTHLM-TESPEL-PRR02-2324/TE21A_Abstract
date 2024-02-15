@@ -6,6 +6,15 @@ public class Button : IClickable, IHoverable
   private string _label;
   private Action _action;
 
+  // private List<IClickListener> clickListeners = new();
+
+  public Action OnClick;
+
+  // public void AddClickListener(IClickListener listener)
+  // {
+  //   clickListeners.Add(listener);
+  // }
+
   public Button(Rectangle rectangle, string label, Action action)
   {
     _rect = rectangle;
@@ -20,6 +29,8 @@ public class Button : IClickable, IHoverable
 
   public void Click()
   {
+    // clickListeners.ForEach(l => l.ClickAction());
+    OnClick.Invoke();
     _action();
   }
 
